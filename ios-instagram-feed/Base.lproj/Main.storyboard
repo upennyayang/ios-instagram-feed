@@ -4,20 +4,61 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8151.3"/>
     </dependencies>
     <scenes>
-        <!--Photo View Controller-->
+        <!--Photos View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="PhotoViewController" customModule="ios_instagram_feed" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="Photo">
+                <viewController id="BYZ-38-t0r" customClass="PhotosViewController" customModule="ios_instagram_feed" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="124" sectionHeaderHeight="28" sectionFooterHeight="28" id="sLh-fo-jrg">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="com.walmartlabs.PhotoViewCell" rowHeight="124" id="d5u-oW-yru" customClass="PhotoViewCell" customModule="ios_instagram_feed" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="320" height="124"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="d5u-oW-yru" id="jli-QL-Uuk">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="123.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="nh8-bO-GIt">
+                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="123.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TQc-V3-esV">
+                                                    <rect key="frame" x="271" y="96" width="0.0" height="0.0"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="photoImageView" destination="nh8-bO-GIt" id="rSC-ds-Sj0"/>
+                                            <outlet property="stateLabel" destination="TQc-V3-esV" id="PSI-Rv-aHs"/>
+                                            <segue destination="aGd-VR-S3b" kind="push" id="C6t-Zo-sVV"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="8bC-Xf-vdC" id="ckK-Vr-qBK"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="r9h-LT-PIM"/>
+                    <connections>
+                        <outlet property="photosTableView" destination="sLh-fo-jrg" id="Dr4-9k-2T2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="694" y="366"/>
+            <point key="canvasLocation" x="-190" y="188"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XtO-c0-eH6">
@@ -35,7 +76,22 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ub0-hy-GMY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="162" y="366"/>
+            <point key="canvasLocation" x="-190" y="900"/>
+        </scene>
+        <!--Photo Details View Controller-->
+        <scene sceneID="4RI-Zz-Z0e">
+            <objects>
+                <viewController id="aGd-VR-S3b" customClass="PhotoDetailsViewController" customModule="ios_instagram_feed" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="50c-gD-sao">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="vZQ-Z8-td7"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eND-IW-gyk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="172" y="188"/>
         </scene>
     </scenes>
 </document>
